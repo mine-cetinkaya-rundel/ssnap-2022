@@ -5,3 +5,5 @@ Materials for the Statistical Analysis workshop for [SSNAP 2018](http://www.ssna
 1. Part 1 - Introduction to Data
 2. Part 2 - Statistical Inference
 3. Part 3 - Reproducible computing
+
+hello

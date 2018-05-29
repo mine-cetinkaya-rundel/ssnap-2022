@@ -296,6 +296,10 @@ big5 <- read_delim("raw-data/big5.txt", delim = "\t")
 big5
 ```
 
+## Follow along
+
+If you'd like to follow along, go to [bit.ly/ssnap-rscloud](http://bit.ly/ssnap-rscloud).
+
 ## Clean data
 
 You can include script files in your R Markdown document

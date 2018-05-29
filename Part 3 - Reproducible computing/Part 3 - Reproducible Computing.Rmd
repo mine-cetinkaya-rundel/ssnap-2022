@@ -474,7 +474,7 @@ Train new researchers who don’t have any other workflow
 
 ## Resources
 
-- Slides and repository for this talk: https://github.com/mine-cetinkaya-rundel/make-research-repro-unc-psy831
+- Slides and repository for this talk: https://github.com/mine-cetinkaya-rundel/ssnap-2018
 
 - R Markdown: http://rmarkdown.rstudio.com/
 

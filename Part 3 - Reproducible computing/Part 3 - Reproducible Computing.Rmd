@@ -15,6 +15,14 @@ library(broom)
 options(show.signif.stars=FALSE)
 ```
 
+##
+
+<br><br><br><br><br><br><br><br>
+
+<center>
+Slides at bit.ly/ssnap-2018
+</center>
+
 # Reproducibility: who cares?
 
 ## Science retracts gay marriage paper without agreement of lead author LaCour

@@ -1,0 +1,90 @@
+---
+title: "The Big Five Personality Test"
+author: "Mine Cetinkaya-Rundel"
+date: "5/29/2018"
+output: html_document
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen = 1, digits = 2)
+```
+
+The Big Five personality traits is a theory of five broad dimensions used by some psychologists to describe the human personality and psyche: openness to experience, conscientiousness, extraversion, agreeableness, and neuroticism.[^1]
+
+```{r message=FALSE}
+big5 <- read_delim("raw-data/big5.txt", delim = "\t")
+```
+
+## Data cleaning
+
+A data cleanup script is in the `\code` folder. Let's run that.
+
+```{r message=FALSE, warning=FALSE}
+source("code/01-data-cleanup.R")
+```
+
+## Ages
+
+```{r message=FALSE, fig.height=3}
+ggplot(big5, aes(x = age)) +
+  geom_histogram()
+```
+
+```{r}
+summary(big5$age)
+```
+
+## Regress extraversion vs. neuroticism and gender {.smaller}
+
+**Extraversion:** Seeking fulfillment from sources outside the self or in community. High scorers are social, low scorers prefer to work alone. **Neuroticism:** Being emotional.
+
+```{r message=FALSE}
+m_ext_age <- lm(extraversion ~ neuroticism * gender, data = big5)
+tidy(m_ext_age)
+```
+
+## Grab coefficients
+
+```{r}
+tidy_m <- tidy(m_ext_age)
+```
+
+Slope for neuroticism is `r tidy_m$estimate[2]`.
+
+
+## Plot extraversion vs. age and gender
+
+```{r message=FALSE, fig.height=4}
+ggplot(data = big5, aes(x = neuroticism, y = extraversion, color = gender)) +
+  geom_point(alpha = 0.5) +
+  geom_jitter() +
+  geom_smooth(method = "lm")
+```
+
+## Suppose you want only teens
+
+```{r}
+big5_teen <- filter(big5, age <= 19)
+```
+
+```{r}
+m_ext_age_teen <- lm(extraversion ~ age * gender, data = big5_teen)
+tidy(m_ext_age_teen)
+```
+
+## Plot for only teens
+
+```{r message=FALSE, fig.height=4}
+ggplot(data = big5_teen, aes(x = neuroticism, y = extraversion, color = gender)) +
+  geom_point(alpha = 0.5) +
+  geom_jitter() +
+  geom_smooth(method = "lm")
+```
+
+
+
+[^1]: Sources: [Wikipedia](https://en.wikipedia.org/wiki/Big_Five_personality_traits) and http://personality-testing.info/_rawdata/.
+

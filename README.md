@@ -6,4 +6,5 @@ Materials for the Statistical Analysis workshop for [SSNAP 2018](http://www.ssna
 2. Part 2 - Statistical Inference
 3. Part 3 - Reproducible computing
 
-hello
+The RStudio Cloud project associated with Part 3 can be
+accessed [here](http://bit.ly/ssnap-rscloud).

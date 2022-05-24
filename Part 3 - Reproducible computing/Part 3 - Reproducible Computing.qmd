@@ -1,6 +1,6 @@
 ---
 title: "Part III - Reproducible computing"
-subtitle: "SSNAP 2018 - Statistical Analysis"
+subtitle: "SSNAP 2022 - Statistical Analysis"
 author: "Mine Çetinkaya-Rundel"
 format: 
   revealjs:
